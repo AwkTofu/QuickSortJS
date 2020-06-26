@@ -6,7 +6,7 @@ function quickSort(arr, left, right) {
 	//We want to check if we even need to do the sorting
 	if (arr.length > 1)
 	{
-		//We first sort the function, and return the left array index
+		//We first sort the function, and return the center which is used to divide the array
 		index = sortingUsingPivot(arr, left, right);
 
 		//If there are more elements on the left side of pivot that needs to be sorted
@@ -26,26 +26,31 @@ function quickSort(arr, left, right) {
 } 
 
 function sortingUsingPivot(arr, left, right) {
-	console.log("We are sorting:", arr)
 	//We are using the middle element of the array as our pivot
 	let pivot = arr[Math.floor((right + left) / 2)];
 	let l = left; //This is keeping track of left pointer
 	let r = right; //this is keeping track of right pointer
 
-	console.log("Left", left, "Pivot", Math.floor((right + left) / 2), "right", right, pivot)
-
+	//Keep going until left pointer passes the right pointer
 	while (l <= r) 
 	{
+		//Used Find the first element on the left side that is larger than the pivot element.
+		//So that we know this is the element we want to move to the other side 
 		while (arr[l] < pivot)
 		{
+			//Keep searching until we pass the pivot
 			l++;
 		}
 
+		//Used Find the first element on the right side that is smaller than the pivot element.
+		//So that we know this is the element we want to move to the other side 
 		while (arr[r] > pivot) 
 		{
+			//Keep searching until we pass the pivot
 			r--;
 		} 
 
+		//we want to swap the two elements as long as left pointer doesn't pass the right pointer
 		if (l <= r) {
 			swap(arr, l, r);
 			l++;
@@ -53,7 +58,7 @@ function sortingUsingPivot(arr, left, right) {
 		}
 	}
 
-	console.log("Sorting End:",l, pivot, r);
+	//Return the left pointer as that is our new center to divide the array
 	return l;
 }
 
@@ -67,3 +72,5 @@ function swap(arr, leftIndex, rightIndex) {
 console.log("Before QuickSort", array);
 quickSort(array, 0, array.length - 1);
 console.log("After QuickSort", array);
+
+quickSort(array, 0, array.length - 1);
