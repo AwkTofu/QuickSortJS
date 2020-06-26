@@ -1,4 +1,4 @@
-let array = [5, 7,2,3,4,1,6]
+// let array = [5, 7,2,3,4,1,6]
 
 function quickSort(arr, left, right) {
 	let index;
@@ -69,8 +69,6 @@ function swap(arr, leftIndex, rightIndex) {
 	arr[rightIndex] = temp;
 }
 
-console.log("Before QuickSort", array);
-quickSort(array, 0, array.length - 1);
-console.log("After QuickSort", array);
-
-quickSort(array, 0, array.length - 1);
+// console.log("Before QuickSort", array);
+// quickSort(array, 0, array.length - 1);
+// console.log("After QuickSort", array);
